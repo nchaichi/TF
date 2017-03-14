@@ -1,0 +1,72 @@
+---
+title: "Pearl Curve Growth"
+author: "Nina Chaichi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+"Pearl Curve" also known as "Logistic Curve" is a growth curve frequantly used to forecast improvements in technolgical approaches, the share of market, the share of total installations, or the rate of technology adoption. Pearl curve function is the appropriate function in the case where the progress depends on both distance to go and distance already come. 
+
+## Formula
+
+Formula for the Pearl Curve is: 
+$$y = \frac{L}{1+ae^-bt} $$
+
+- *y* is the growth variable
+- *L* is the upper limit to the growth of the variable y
+- *e* is the base of the natural logarithms
+- *t* is the time
+- *a* is growth curve coefficient
+- *b* is the growth curve coefficient
+
+## Curve Analysis
+
+The curve is symmetrical about the inflection point, with the upper half being a reflection of the lower half. However, since we work with positive time we will get the upper half of the curve.
+
+The reflection point is at $$ t = \frac{\ln(a)}{b} $$ when $$ y = \frac{L}{2} $$
+
+In Pearl curve the steepness and location of curve can be controlled independently. Changes in the coefficient *a* affect the location only, and changes in the coefficient *b* affect the steepness only. In this package, *a* and *b* coefficient can be provided by user or can be estimated from historical data. The following formula illustrate how to estimate *a* and *b* based on historical data:
+
+$$ Y = \log(\frac{y}{L-y}) = - A + Bt $$
+
+## Analogous Pearl Curve
+
+Analogous Preal Curve can provide growth curve based on provided the upper limit of growth, *t* the period of estimation, and the *a* and *b* coefficient according ot analogous case. Following is an example of Analogous Pearl Curve. Pearl_AC(1.6, 0.8, 10000, 20) calculates the growth over 20 periods, where the highest growth can be reached is 10000. And, *a* and *b* coefficients are 1.6 and 0.8 respectively. Ouput shows the growth for a given period from 1 to 20.
+
+```{r comment=NA}
+library(pander)
+pander(Pearl_AC(1.6, 0.8, 10000, 20))
+```
+
+Pearl_AC_Plot function plots the result of Pearl_AC. For example, Pearl_AC_Plot(1.6, 0.8, 10000, 20) plots the result of Pearl_AC(1.6, 0.8, 10000, 20).
+
+```{r}
+Pearl_AC_Plot(1.6, 0.8, 10000, 20)
+```
+
+## Historical Pearl Curve
+
+Following illustrates the growth of cable TV adoption from 1952 through 1989. In 1989, 47800000 housholds in US have been adopted cable tv which is considered 49.2% of all households. 
+
+```{r comment=NA}
+data("CATV")
+pander(CATV)
+```
+
+Coefficients of pearl curve can be estimated based on the historical data. Pearl_HC function estimates the coeeficients from historical data and calculates the growth. Pearl_HC(CATV,89024390,20) estimates the *a* and *b* from historical cable tv data. Then it calculates the growth from 1952 through 20 years above last available data - in this case 1989. The upper growth for cable tv is when all the househlods in U.S. (89024390). 
+
+```{r comment=NA}
+pander(Pearl_HC(CATV,89024390,20))
+```
+
+Pearl_HC_Plot function plots the result of Pearl_HC. For example, Pearl_HC_Plot(CATV, 89024390, 20) plots the result of Pearl_HC(CATV, 89024390, 20).
+
+```{r}
+Pearl_HC_plot(CATV,89024390,20)
+```
+

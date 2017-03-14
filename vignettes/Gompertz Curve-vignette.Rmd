@@ -1,0 +1,69 @@
+---
+title: "Gompertz Curve Growth"
+author: "Nina Chaichi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+"Gompertz Curve" is a growth curve frequantly used to forecast improvements in technolgical approaches, the share of market, the share of total installations, or the rate of technology adoption. Gompertz curve function is the appropriate function in the case where the progress only depends on distance to go.
+
+## Formula
+
+Formula for the Pearl Curve is: $$ y = Le^{-be^{-kt}} $$
+
+- *y* is the growth variable
+- *L* is the upper limit to the growth of the variable y
+- *e* is the base of the natural logarithms
+- *t* is the time
+- *k* is growth curve coefficient
+- *b* is the growth curve coefficient
+
+## Curve Analysis
+
+The curve is not symmetrical. The reflection point is at $$ t = \frac{\ln(b)}{k} $$ when $$ y = \frac{L}{e} $$
+
+In this package, *b* and *k* coefficient can be provided by user or can be estimated from historical data. The following formula illustrate how to estimate *b* and *k* based on historical data:
+
+$$ Y = \ln[\ln(\frac{L}{y})] = \ln(b) - kt $$
+
+## Analogous Gompertz Curve
+
+Analogous Gompertz Curve can provide growth curve based on provided the upper limit of growth, *t* the period of estimation, and the *b* and *k* coefficient according ot analogous case. Following is an example of Analogous Gompertz Curve. Gompertz_AC(0.8, 0.2, 10000, 20) calculates the growth over 20 periods, where the highest growth can be reached is 10000 And, *b* and *k* coefficients are 0.8 and 0.2 respectively. Ouput shows the growth for a given period from 1 to 20.
+
+```{r comment=NA}
+library(pander)
+pander(Gompertz_AC(0.8, 0.2, 10000, 20))
+```
+
+Gompertz_AC_Plot function plots the result of Gompertz_AC. For example, Gompertz_AC_Plot(0.8, 0.2, 10000, 20) plots the result of Gompertz_AC(0.8, 0.2, 10000, 20).
+
+```{r}
+Gompertz_AC_Plot(0.8, 0.2, 10000, 20)
+```
+
+## Historical Gompertz Curve
+
+Following illustrates the growth of power plant efficiency from 1920 through 1987. Power plant efficiency measured the amount of kilowatt hours per pound of coal. The equivalent energy of 1kwh is $3.6*10^6$ joules, on the other hand, the equivalent energy of pound of coal is $1.6*10^6$ joules. So, the maximum efficiency can be reached is 2.81 kwh per pound of coal.
+
+```{r comment=NA}
+data("PE")
+pander(PE)
+```
+
+Coefficients of Gompertz curve can be estimated based on the historical data. Gompertz_HC function estimates the coeeficients from historical data and calculates the growth. Gompertz_HC(PE, 2.81, 20) estimates the *b* and *k* from historical cable tv data. Then it calculates the growth from 1920 through 20 years above last available data - in this case 1987. The upper growth limit for power plant efficiency is 2.81 where there is no waste. 
+
+```{r comment=NA}
+pander(Gompertz_HC(PE, 2.81, 20))
+```
+
+Gompertz_HC_Plot function plots the result of Gompertz_HC. For example, Gompertz_HC_Plot(PE, 2.81, 250) plots the result of Gompertz_HC(PE, 2.81, 250). This plot illustrates that almost 250 years will take to get close to 100% efficiency.
+
+```{r}
+Gompertz_HC_plot(PE, 2.81, 250)
+```
+

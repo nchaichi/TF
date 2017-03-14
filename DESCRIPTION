@@ -1,0 +1,14 @@
+Package: TF
+Type: Package
+Title: Technology Forecasting - Growth Curve
+Version: 0.1
+Date: 2016-10-28
+Author: Nina Chaichi
+Maintainer: Nina Chaichi <nina.chaichi@gmail.com>
+Description: Forecast technological adoption curve including Bass Curve, Gompertz Curve, Pearl Curve
+License: GPL-2
+Lazydata: TRUE
+RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

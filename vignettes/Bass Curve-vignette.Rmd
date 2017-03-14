@@ -1,0 +1,51 @@
+---
+title: "Bass Curve Growth"
+author: "Nina Chaichi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+"Bass Curve" is a growth curve frequantly used to forecast new technology and durable product growth model. Bass curve considers that there is constant maximum amount of adopters and adoption rate influenced by two impacts. Internal impact illustrates word of mouth or imitation's influence, while, external impact reflects the influence of marketing strategies and etc. $ Number of customers who will purchase the product at time t = p * remaining potential + Q * adopters * remaining potential $
+
+## Formula
+
+Formula for the Bass Curve is: $$ n(t) = [p+\frac{q}{m}N(t-1)][m-N(t-1)] $$
+
+- *n(t)* is number of customers who will purchase the product at time t
+- *N(t-1)* is total number of adopters of the product at time t-1
+- *m* is total number of potential buyers of the new product
+- *e* is the base of the natural logarithms
+- *t* is the time
+- *p* is coefficient of innovation (external impact)
+- *q* is coefficient of immitation (internal impact)
+
+## Curve Analysis
+
+Cumulative number of adopters $$ N(t) = m \frac{1-e^{-(p+q)t}}{1+\frac{q}{p}e^{-(p+q)t}} $$
+Noncomulative number of adopters $$ n(t) = \frac{dN(t)}{dt} = m\frac{p(p+q)^2e^{-(p+q)t}}{[p+qe^{-(p+q)t}]^2}$$
+Time of peak adoption $$ T = -\frac{1}{p+q}\ln(\frac{p}{q})$$
+Number of adopters at peak time $$ n(t) = \frac{1}{4q}(p+q)^2 $$
+
+
+## Analogous Bass Curve
+
+Analogous Bass Curve can provide growth curve based on provided the upper limit of growth, *t* the period of estimation, and the *p* and *q* coefficient according ot analogous case. Following is an example of Analogous Bass Curve. Bass_AC(0.16, 0.304, 100000, 20) calculates the growth over 20 periods, where the highest growth can be reached is 100000 And, *p* and *q* coefficients are 0.016 and 0.304 respectively. There coefficients are correspondence with the room air conditioning adoption pattern from 1950 to 1963. Ouput shows the cumulative growth and growth rate for a given period from 1 to 20.
+
+```{r comment=NA}
+library(pander)
+pander(Bass_AC(0.016, 0.304, 100000, 20))
+```
+
+Bass_AC_Plot function plots the result of Bass_AC. For example, Bass_AC_Plot(0.016, 0.304, 100000, 20) plots the result of Bass_AC(0.016, 0.304, 100000, 20).
+
+```{r}
+Bass_AC_Plot(0.016, 0.304, 100000, 20)
+```
+
+
+
