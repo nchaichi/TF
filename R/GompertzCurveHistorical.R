@@ -31,6 +31,7 @@ Gompertz_Curve_Base <- function(b, k, l, t){
 #' @seealso
 #' @aliases
 #' @examples \dontrun{
+#' data('PE')
 #' Gompertz_HC(PE, 2.81, 20)
 #' }
 
@@ -61,6 +62,7 @@ Gompertz_HC <- function(x, l, t){
 #' @seealso
 #' @aliases
 #' @examples \dontrun{
+#' data('PE')
 #' Gompertz_HC_plot(PE, 2.81, 250)
 #' }
 

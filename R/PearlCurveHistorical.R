@@ -32,6 +32,7 @@ Pearl_Curve_Base <- function(a, b, l, t){
 #' @seealso
 #' @aliases
 #' @examples \dontrun{
+#' data('CATV')
 #' Pearl_HC(CATV,89024390,20)
 #' }
 
@@ -62,6 +63,7 @@ Pearl_HC <- function(x, l, t){
 #' @seealso
 #' @aliases
 #' @examples \dontrun{
+#' data('CATV')
 #' Pearl_HC_plot(CATV,89024390,20)
 #' }
 
