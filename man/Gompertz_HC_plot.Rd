@@ -21,10 +21,9 @@ plot of best fitted cumulative adoption.
 Historical Gomperz Curve Plot function plots Historical Gomperz Curve function results.
 }
 \examples{
+\dontrun{
 data("PE")
 Gompertz_HC_plot(PE, 2.81, 250)
-\dontrun{
-
 }
 }
 

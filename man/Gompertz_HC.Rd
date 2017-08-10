@@ -21,10 +21,9 @@ data frame (period, best fitted cumulative adoption)
 Historical Gomperz Curve function estimates the curve parameters (b & k) based on the historical data.
 }
 \examples{
+\dontrun{
 data("PE")
 Gompertz_HC(PE, 2.81, 20)
-\dontrun{
-
 }
 }
 

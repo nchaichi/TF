@@ -22,9 +22,8 @@ data frame (period, cumulative adoption)
 Analogous Pearl Curve uses analogy to determine curve coefficients (a & b) .
 }
 \examples{
-Pearl_AC(1.6, 0.8, 10000, 20)
 \dontrun{
-
+Pearl_AC(1.6, 0.8, 10000, 20)
 }
 }
 

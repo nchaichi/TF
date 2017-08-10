@@ -22,9 +22,8 @@ data frame (period, cumulative adoption)
 Analogous Gompertz Curve uses analogy to determine curve coefficients (b & k) .
 }
 \examples{
-Gompertz_AC(0.8, 0.2, 10000, 20)
 \dontrun{
-
+Gompertz_AC(0.8, 0.2, 10000, 20)
 }
 }
 

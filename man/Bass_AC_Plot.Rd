@@ -22,9 +22,8 @@ plot of adoption rate and cumulative adoption
 Analogous Bass Curve Plot function plots Historical Bass Curve function results.
 }
 \examples{
-Bass_AC_Plot(0.016, 0.304, 100000, 20)
 \dontrun{
-
+Bass_AC_Plot(0.016, 0.304, 100000, 20)
 }
 }
 

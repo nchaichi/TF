@@ -21,10 +21,9 @@ plot of best fitted cumulative adoption.
 Historical Pearl Curve Plot function plots Historical Pearl Curve growth function results.
 }
 \examples{
+\dontrun{
 data("CATV")
 Pearl_HC_plot(CATV,89024390,20)
-\dontrun{
-
 }
 }
 

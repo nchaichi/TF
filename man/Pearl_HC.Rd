@@ -21,10 +21,9 @@ data frame (period, best fitted cumulative adoption)
 Historical Pearl Curve function estimates the curve parameters (a & b) based on the historical data.
 }
 \examples{
+\dontrun{
 data("CATV")
 Pearl_HC(CATV,89024390,20)
-\dontrun{
-
 }
 }
 

@@ -22,9 +22,8 @@ plot of cumulative adoption over certain period of time.
 Analogous Pearl Curve Plot function plots Analogous Pearl Curve.
 }
 \examples{
-Pearl_AC_Plot(1.6, 0.8, 10000, 20)
 \dontrun{
-
+Pearl_AC_Plot(1.6, 0.8, 10000, 20)
 }
 }
 

@@ -22,9 +22,8 @@ plot of cumulative adoption over certain period of time.
 Analogous Gompertz Curve Plot function plots Analogous Gompertz Curve.
 }
 \examples{
-Gompertz_AC_Plot(0.8, 0.2, 10000, 20)
 \dontrun{
-
+Gompertz_AC_Plot(0.8, 0.2, 10000, 20)
 }
 }
 

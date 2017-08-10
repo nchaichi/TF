@@ -23,9 +23,8 @@ Analogous Bass Curve uses analogy to estimate Bass Curve parameters. In case tha
 data available for technology, parameters of similar cases can be used to forecast growth curve.
 }
 \examples{
-Bass_AC(0.016, 0.304, 100000, 20)
 \dontrun{
-
+Bass_AC(0.016, 0.304, 100000, 20)
 }
 }
 
